@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Neo Notes Application</string>
+    <string name="notes_manager">Notes Manager</string>
+    <string name="organize_your_notes_with_tags_and_search">Organize your notes with tags and Search</string>
+    <string name="search_notes_by_title_body_or_tags">Search notes by Title, body or tags</string>
+    <string name="filter_by_tags">Filter by tags:</string>
+    <string name="tags">Tags</string>
+    <string name="no_filter_tags_available">No Filter Tags Available</string>
+    <string name="body">Body</string>
+    <string name="title">Title</string>
+    <string name="dec_01_2025">Dec 01, 2025</string>
+    <string name="enter_tags_with_comma_separated">Enter Tags With Comma Separated</string>
+    <string name="update">Update</string>
+    <string name="enter_description">Enter Description</string>
+    <string name="enter_title">Enter Title</string>
+</resources>
