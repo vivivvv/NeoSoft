@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Neo Notes Application</string>
+    <string name="app_name">Neo Notes</string>
     <string name="notes_manager">Notes Manager</string>
     <string name="organize_your_notes_with_tags_and_search">Organize your notes with tags and Search</string>
     <string name="search_notes_by_title_body_or_tags">Search notes by Title, body or tags</string>
