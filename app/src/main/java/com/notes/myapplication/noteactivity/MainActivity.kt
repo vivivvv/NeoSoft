@@ -56,7 +56,11 @@ class MainActivity : AppCompatActivity() {
         filterTagAdapter = TagFilterAdapter(tagList) { clickedTag ->
             binding.searchBoxET.setText("")
             binding.searchBoxET.clearFocus()
-            val filteredNotes = notes.filter { it.tags.contains(clickedTag) }
+            val filteredNotes = if (clickedTag.isNullOrBlank()) {
+                notes
+            } else {
+                notes.filter { it.tags.contains(clickedTag) }
+            }
             noteAdapter.updateNotes(filteredNotes)
         }
         binding.filterTagsRV.layoutManager =

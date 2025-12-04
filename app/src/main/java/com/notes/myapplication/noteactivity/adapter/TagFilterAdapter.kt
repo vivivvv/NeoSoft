@@ -1,5 +1,7 @@
 package com.notes.myapplication.noteactivity.adapter
 
+import android.annotation.SuppressLint
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -8,8 +10,10 @@ import com.notes.myapplication.databinding.FilterTagItemBinding
 
 class TagFilterAdapter(
     private var items: List<String>,
-    private val onItemClick: ((String) -> Unit)
+    private val onItemClick: ((String?) -> Unit)
 ) : RecyclerView.Adapter<TagFilterAdapter.CardViewHolder>() {
+
+    private var selectedTag: String? = null
 
     class CardViewHolder(val binding: FilterTagItemBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -21,12 +25,29 @@ class TagFilterAdapter(
         return CardViewHolder(binding)
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
         val item = items[position]
         holder.binding.tvTag.text = item
 
+        if (item == selectedTag) {
+            holder.binding.tvTag.setBackgroundColor(Color.LTGRAY)
+        } else {
+            holder.binding.tvTag.setBackgroundColor(Color.WHITE)
+        }
+
         holder.binding.root.setOnClickListener {
-            onItemClick.invoke(item)
+            if (item == selectedTag) {
+                // TAG SELECTED
+                selectedTag = null
+                notifyDataSetChanged()
+                onItemClick.invoke(null)
+            } else {
+                // NEW TAG SELECTED
+                selectedTag = item
+                notifyDataSetChanged()
+                onItemClick.invoke(item)
+            }
         }
     }
 
